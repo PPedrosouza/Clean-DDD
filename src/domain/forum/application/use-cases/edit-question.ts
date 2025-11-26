@@ -1,13 +1,16 @@
+import { Question } from '@/domain/forum/enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
 
 interface EditQuestionUseCaseRequest {
-  authorId?: string
+  authorId: string
   questionId: string
   title: string
   content: string
 }
 
-interface EditQuestionUseCaseResponse {}
+interface EditQuestionUseCaseResponse {
+  question: Question
+}
 
 export class EditQuestionUseCase {
   constructor(private questionsRepository: QuestionsRepository) {}
@@ -33,6 +36,6 @@ export class EditQuestionUseCase {
 
     await this.questionsRepository.save(question)
 
-    return {}
+    return { question }
   }
 }
