@@ -17,10 +17,11 @@ describe('Delete Question', () => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
     )
+
     sut = new DeleteQuestionUseCase(inMemoryQuestionsRepository)
   })
 
-  it('should be able to delete a question by id', async () => {
+  it('should be able to delete a question', async () => {
     const newQuestion = makeQuestion(
       {
         authorId: new UniqueEntityId('author-1'),
