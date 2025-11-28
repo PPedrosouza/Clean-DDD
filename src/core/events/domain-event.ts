@@ -1,0 +1,8 @@
+// Published when something important happens in the domain
+
+import { UniqueEntityId } from '../entities/unique-entity-id'
+
+export interface DomainEvent {
+  ocurredAt: Date
+  getAggregateId(): UniqueEntityId
+}
